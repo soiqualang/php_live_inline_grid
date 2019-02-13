@@ -1,0 +1,36 @@
+<div id="login">
+		<h1><a href="http://girs.vn:3600/angiang-agriweb/portal/" title="Xây dựng bằng WordPress" tabindex="-1">Xây dựng bằng WordPress</a></h1>
+	
+<form name="loginform" id="loginform" action="login.php" method="post">
+	<p>
+		<label for="email">Địa chỉ Email<br />
+		<input type="text" name="email" id="email" class="input" value="" size="20" /></label>
+	</p>
+	<p>
+		<label for="password">Mật khẩu<br />
+		<input type="password" name="password" id="password" class="input" value="" size="20" /></label>
+	</p>
+	<p class="submit">
+		<input type="submit" name="submit" id="submit" class="button button-primary button-large" value="Đăng nhập" />
+		<input type="hidden" name="redirect_to" value="http://girs.vn:3600/angiang-agriweb/portal/" />
+		<input type="hidden" name="testcookie" value="1" />
+	</p>
+</form>
+
+<script type="text/javascript">
+function wp_attempt_focus(){
+setTimeout( function(){ try{
+d = document.getElementById('email');
+d.focus();
+d.select();
+} catch(e){}
+}, 200);
+}
+
+wp_attempt_focus();
+if(typeof wpOnload=='function')wpOnload();
+</script>
+
+	<p id="backtoblog"><a href="http://girs.vn:3600/angiang-agriweb/portal/">&larr; Quay lại Nông nghiệp An Giang</a></p>
+	
+	</div>
