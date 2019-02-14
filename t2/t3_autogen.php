@@ -42,7 +42,6 @@ if(isset($_GET['tbl'])){
 
      width: "100%",
      height: "600px",
-
      filtering: true,
      inserting:true,
      editing: true,
@@ -95,7 +94,7 @@ if(isset($_GET['tbl'])){
 	
 	
 	for($i=0;$i<count($a);$i++){
-		if(($a[$i]['column_name']!='id') or ($a[$i]['column_name']!='geom')){
+		if(($a[$i]['column_name']!='id') and ($a[$i]['column_name']!='geom')){
 			$fields.=',
 			  {
 			   name: "'.$a[$i]['column_name'].'", 

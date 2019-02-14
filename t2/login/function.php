@@ -684,4 +684,12 @@ function writenoti($check,$stt){
 		return '';
 	}
 }
+function array_push_assoc($array, $key, $value){
+    /*
+    $arr=array();
+    $arr=array_push_assoc($arr,'duration',$duration);
+    */
+	$array[$key] = $value;
+	return $array;
+}
 ?>
