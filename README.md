@@ -12,6 +12,8 @@ Add Autogen grid from postgresql table
 *Todo*
 * Make selectbox for relationship table in grid
 
+*Referent*
+> https://q2a.dothanhlong.org/?qa=235/postgresql-get-all-column-names
 
 ***
 ## Update 13/02/2019
