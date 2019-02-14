@@ -3,6 +3,7 @@
 ##Update 14/02/2019
 Autogen selectbox from relationship
 
+> https://q2a.dothanhlong.org/?qa=237/postgres-sql-to-list-table-foreign-keys&show=238#a238
 ```
 SELECT
     tc.table_schema, 
