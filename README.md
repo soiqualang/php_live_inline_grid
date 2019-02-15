@@ -14,7 +14,7 @@ I've moved all things to **old folder**, just place the final version at the top
 
 > http://localhost/php_grid/t4_selectbox.php?tbl=tt_tralua_v2
 
-![alt](D:/sync/websvr/xampp/php_grid/img/t4.png)
+![alt](./img/t4.png)
 
 ## Update 15/02/2019
 **foreign_table_name** must have **fullname** column, it's used as label for option of selectbox
