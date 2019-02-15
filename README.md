@@ -1,7 +1,23 @@
 # php_live_inline_grid
 
+## Finish
+### Note:
+* table must have **id** column as primary key
+* table must have **fullname** column for option selectbox label
+* table must register **Foreign keys** to other relationship table
+
+I've moved all things to **old folder**, just place the final version at the top folder, include:
+* **fetch_data_pg_autogen_selectbox.php** (Process data);
+* **t4_selectbox.php** (UI for end user);
+* **db** (folder database for PostgreSQL);
+* **func** (folder libs and functions).
+
+> http://localhost/php_grid/t4_selectbox.php?tbl=tt_tralua_v2
+
+![alt](D:/sync/websvr/xampp/php_grid/img/t4.png)
+
 ## Update 15/02/2019
-**foreign_table_name** must have **fullname** column, it's used as label for selectbox
+**foreign_table_name** must have **fullname** column, it's used as label for option of selectbox
 
 ```
 UPDATE tt_muavu
@@ -35,6 +51,14 @@ WHERE tc.constraint_type = 'FOREIGN KEY' AND tc.table_name='tt_tralua_v2';
 
 ## Update 14/02/2019
 Add Autogen grid from postgresql table
+
+```
+SELECT *
+FROM information_schema.columns
+WHERE table_schema = 'public'
+  AND table_name   = 'sample_data'
+```
+> https://q2a.dothanhlong.org/?qa=235/postgresql-get-all-column-names
 
 **=>t2 folder**
 
