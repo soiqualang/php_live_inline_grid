@@ -1,6 +1,14 @@
 # php_live_inline_grid
 
-##Update 14/02/2019
+## Update 15/02/2019
+**foreign_table_name** must have **fullname** column, it's used as label for selectbox
+
+```
+UPDATE tt_muavu
+SET fullname = tenmuavu
+```
+
+## Update 14/02/2019
 Autogen selectbox from relationship
 
 ```

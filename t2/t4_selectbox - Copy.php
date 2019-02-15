@@ -31,23 +31,13 @@ if(isset($_GET['tbl'])){
 	$tbl=$_GET['tbl'];
 	$urlajax='fetch_data_pg_autogen_selectbox.php?tbl='.$tbl;
 	
-	$ftablearr=array();	
 	$b=table_to_ftable($tbl);
 	for($i=0;$i<count($b);$i++){
-		echo $foreign_table_name=$b[$i]['foreign_table_name'];
+		echo $b[$i]['foreign_table_name'];
 		echo ' | ';
-		echo $column_name=$b[$i]['column_name'];
-		echo ' | ';
-		echo $foreign_column_name=$b[$i]['foreign_column_name'];
+		echo $b[$i]['column_name'];
 		echo '<br>';
-		
-		$ftablearr[$i]['foreign_table_name']=$foreign_table_name;
-		$ftablearr[$i]['column_name']=$column_name;
-		$ftablearr[$i]['foreign_column_name']=$foreign_column_name;
-		
-		//$ftablearr=array_push_assoc($ftablearr,'duration',$duration);
 	}
-	//echo $ftablearr[1]['foreign_table_name'];
 }
 ?>
 <html>  
@@ -133,36 +123,40 @@ if(isset($_GET['tbl'])){
 	
 	
 	for($i=0;$i<count($a);$i++){
-		$colname=$a[$i]['column_name'];
-		if(($colname!='id') and ($colname!='geom')){			
-			$list_col_ignore=array();
-			$m=0;
-			for($j=0;$j<count($ftablearr);$j++){
-				$rcolname=$ftablearr[$j]['column_name'];
-				if($colname==$rcolname){
-					$rtable=$ftablearr[$j]['foreign_table_name'];
-					$primcol=$ftablearr[$j]['foreign_column_name'];
-					$fields.=tbl_to_option($rtable,'fullname',$primcol,$rcolname);
-					
-					$list_col_ignore[$m++]=$colname;
-				}
-			}
-			if(!in_array($colname,$list_col_ignore)){
-				$fields.=',
-				{
-					name: "'.$colname.'", 
-					type: "text", 
-					width: 150, 
-					validate: "required"
-				}';
-			}
+		if(($a[$i]['column_name']!='id') and ($a[$i]['column_name']!='geom')){
+			$fields.=',
+			  {
+			   name: "'.$a[$i]['column_name'].'", 
+			type: "text", 
+			width: 150, 
+			validate: "required"
+			  }';
 		}
 	}
 	
-	//$fields.=tbl_to_option('tt_loaicay','tenloai','id','idloaicay');
+	$fields.=tbl_to_option('tt_loaicay','tenloai','id','idloaicay');
 	
 	
 	$fields.=',
+      {
+       name: "idloaicay", 
+    type: "select", 
+    items: [';
+	
+	$fields.='{ Name: "", Id: \'\' },';
+	
+	$tt_loaicay=table_to_array1('tt_loaicay');
+	for($k=0;$k<count($tt_loaicay)-1;$k++){
+		$fields.='{ Name: "'.$tt_loaicay[$k]['tenloai'].'", Id: \''.$tt_loaicay[$k]['id'].'\' },';
+	}
+	$fields.='{ Name: "'.$tt_loaicay[$k]['tenloai'].'", Id: \''.$tt_loaicay[$k]['id'].'\' },';
+	
+	$fields.='
+    ], 
+    valueField: "Id", 
+    textField: "Name", 
+    validate: "required"
+      },
 		  {
 		   type: "control"
 		  }

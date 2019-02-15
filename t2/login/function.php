@@ -193,6 +193,40 @@ function table_to_listcols($table){
 	}
     return $array;
 }
+function table_to_ftable($table){
+	//table_name
+	//column_name
+	//foreign_table_name
+	//foreign_column_name
+	$sql="SELECT
+    tc.table_schema, 
+    tc.constraint_name, 
+    tc.table_name, 
+    kcu.column_name, 
+    ccu.table_schema AS foreign_table_schema,
+    ccu.table_name AS foreign_table_name,
+    ccu.column_name AS foreign_column_name 
+FROM 
+    information_schema.table_constraints AS tc 
+    JOIN information_schema.key_column_usage AS kcu
+      ON tc.constraint_name = kcu.constraint_name
+      AND tc.table_schema = kcu.table_schema
+    JOIN information_schema.constraint_column_usage AS ccu
+      ON ccu.constraint_name = tc.constraint_name
+      AND ccu.table_schema = tc.table_schema
+WHERE tc.constraint_type = 'FOREIGN KEY' AND tc.table_name='".$table."';";
+	
+	$dbcon = pg_connect("dbname=".PG_DB." password=".PG_PASS." host=".PG_HOST." user=".PG_USER." port=".PG_PORT);
+	$query_tmp=pg_query($dbcon,$sql);
+	$i=pg_num_rows($query_tmp)-1;
+	$array=array();
+	while($r_tmp=pg_fetch_assoc($query_tmp))
+	{
+		$array[$i]=$r_tmp;
+		$i--;
+	}
+    return $array;
+}
 
 function table_to_arrayorder($table)//theo thu tu gid
 {
