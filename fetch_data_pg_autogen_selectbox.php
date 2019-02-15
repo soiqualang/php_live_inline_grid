@@ -102,7 +102,7 @@ if(isset($_GET['tbl'])){
 				array_push($value,$val);
 			}			
 		}
-		$table=$_GET['tbl'];		
+		$table=$_GET['tbl'];
 		$id=$_PUT['id'];
 		update_table($table,$field,$value,'id',$id);
 	}
@@ -110,7 +110,7 @@ if(isset($_GET['tbl'])){
 	//Delete
 	if($method == "DELETE"){
 		parse_str(file_get_contents("php://input"), $_DELETE);
-		$table='sample_data';
+		$table=$_GET['tbl'];
 		$id=$_DELETE['id'];
 		Delete($table,'id',$id);
 	}

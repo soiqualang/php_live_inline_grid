@@ -34,11 +34,12 @@ if(isset($_GET['tbl'])){
 	$ftablearr=array();	
 	$b=table_to_ftable($tbl);
 	for($i=0;$i<count($b);$i++){
-		echo $foreign_table_name=$b[$i]['foreign_table_name'];
-		echo ' | ';
-		echo $column_name=$b[$i]['column_name'];
-		echo ' | ';
-		echo $foreign_column_name=$b[$i]['foreign_column_name'];
+		
+		$foreign_table_name=$b[$i]['foreign_table_name'];
+		$column_name=$b[$i]['column_name'];
+		$foreign_column_name=$b[$i]['foreign_column_name'];
+				
+		echo '<a href="t4_selectbox.php?tbl='.$foreign_table_name.'" target="_blank">'.$foreign_table_name.'</a>';
 		echo '<br>';
 		
 		$ftablearr[$i]['foreign_table_name']=$foreign_table_name;
