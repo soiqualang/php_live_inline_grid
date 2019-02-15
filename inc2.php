@@ -58,7 +58,7 @@
 		$colname=$a[$i]['column_name'];
 		if(($colname!='id') and ($colname!='geom')){			
 			$list_col_ignore=array();
-			$m=0;
+			$m=-1;
 			for($j=0;$j<count($ftablearr);$j++){
 				$rcolname=$ftablearr[$j]['column_name'];
 				if($colname==$rcolname){
