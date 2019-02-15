@@ -6,6 +6,10 @@
 * table must have **fullname** column for option selectbox label
 * table must register **Foreign keys** to other relationship table
 
+![php_live_inline_grid](./img/tt_tralua_v2.PNG)
+![php_live_inline_grid](./img/tt_tralua_v2_2.PNG)
+![php_live_inline_grid](./img/tt_loaicay.PNG)
+
 I've moved all things to **old folder**, just place the final version at the top folder, include:
 * **fetch_data_pg_autogen_selectbox.php** (Process data);
 * **t4_selectbox.php** (UI for end user);
@@ -14,7 +18,7 @@ I've moved all things to **old folder**, just place the final version at the top
 
 > http://localhost/php_grid/t4_selectbox.php?tbl=tt_tralua_v2
 
-![alt](./img/t4.png)
+![php_live_inline_grid](./img/t4.png)
 
 ## Update 15/02/2019
 **foreign_table_name** must have **fullname** column, it's used as label for option of selectbox
